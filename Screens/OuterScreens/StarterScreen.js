@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   Image,
   ImageBackground,
   Platform,
@@ -12,7 +13,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
 const StarterScreen = () => {
-    const Navigation=useNavigation()
+  const Navigation = useNavigation();
   return (
     <SafeAreaView
       style={{
@@ -22,7 +23,7 @@ const StarterScreen = () => {
       }}
     >
       <ImageBackground
-        style={{ flex: 1 }}
+        style={{ height: Dimensions.get('window').height, width: "100%" }}
         source={require("../../assets/background.png")}
         resizeMode="cover"
       >
@@ -39,14 +40,14 @@ const StarterScreen = () => {
         <Pressable
           style={{
             position: "absolute",
-            bottom: "5%",
+            bottom: "10%",
             alignSelf: "center",
             backgroundColor: "#fff",
             padding: 15,
             width: "85%",
             borderRadius: 30,
           }}
-          onPress={()=>Navigation.navigate('Intro')}
+          onPress={() => Navigation.navigate("Intro")}
         >
           <Text
             style={{ textAlign: "center", fontWeight: "500", fontSize: 18 }}
