@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import React, { useRef, useState } from "react";
 import Carousel, { Pagination } from "react-native-snap-carousel";
+import { useNavigation } from "@react-navigation/native";
 
 const IntroductionScreen = () => {
   const sliderData = [
@@ -47,6 +48,7 @@ const IntroductionScreen = () => {
 
   const [index,setIndex]=useState(0)
   const isRef=useRef(null)
+  const navigation=useNavigation()
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View style={{ alignItems: "center", marginTop: "10%" }}>
@@ -106,6 +108,7 @@ const IntroductionScreen = () => {
             borderRadius: 30,
             width: "50%",
           }}
+          onPress={()=>navigation.navigate('SignupScreen')}
         >
           <Text style={{ color: "#fff", fontSize: 16, textAlign: "center" }}>
             Create Account
@@ -114,7 +117,7 @@ const IntroductionScreen = () => {
 
         <View style={{ flexDirection: "row", marginTop: "5%" }}>
           <Text style={{ fontSize: 16, color: "#000" }}>Have an Account? </Text>
-          <Pressable>
+          <Pressable onPress={()=>navigation.navigate('LoginScreen')}>
             <Text style={{ fontSize: 16, color: "#006A55" }}>Log in</Text>
           </Pressable>
         </View>
